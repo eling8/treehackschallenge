@@ -1,0 +1,39 @@
+%h1 Send Mass Texts
+- if flash[:success]
+  %h2.success 
+    = flash[:success]
+- elsif flash[:error]
+  %h2.error
+    = flash[:error]
+%form{ :action => "/addnumber", :method => "post"}
+  %h2 Add phone number to list
+  %h3 
+    %a{:href => '/numbers', :id => 'button'} View current entries
+  %fieldset
+    %label{:for => "name"} Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    %input{:type => "text", :name => "name", :class => "text"} <br />
+
+    %label{:for => "number"} Phone Number: &nbsp;&nbsp;&nbsp;
+    %input{:type => "text", :name => "number", :class => "text"} <br />
+
+    %input{:type => "submit", :value => "Add Entry", :class => "button"}
+
+%form{ :id => "sms-left", :action => "/sendsms", :method => "post"}
+  %h2 Send text message
+  %fieldset
+    %label{:for => "smsBody"} Message: <br />
+    %textarea{:name => "smsBody"} 
+
+    %input{:type => "submit", :value => "Send SMS", :class => "button"}
+
+%form{ :id => "mms-right", :action => "/sendmms", :method => "post"}
+  %h2 Send picture message
+  %fieldset
+    %label{:for => "mmsBody"} Message: <br />
+    %textarea{:name => "mmsBody"}
+
+    %label{:for => "mmsURL"} Media URL: <br />
+    %input{:type => "text", :name => "mmsURL", :class => "text"}
+
+    %input{:type => "submit", :value => "Send MMS", :class => "button"}
+

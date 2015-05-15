@@ -1,0 +1,7 @@
+- @people.each do |p|
+  = p.name
+  , &nbsp;
+  = p.number
+  &nbsp;
+  %a{:href => "/delete/#{p.id}"} Delete
+  <br />
