@@ -39,7 +39,8 @@ post '/sendsms' do
   # auth_token  = "47b773f061c61a6bd35a70f82b4bb1cc"
   account_sid = ENV['ACCOUNT_SID']
   auth_token = ENV['AUTH_TOKEN']
-  @client = Twilio::REST::Client.new account_side, auth_token
+  @client = Twilio::REST::Client.new account_sid, auth_token
+  
   # @client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
 
   @people = Person.all
@@ -59,7 +60,7 @@ post '/sendmms' do
   account_sid = ENV['ACCOUNT_SID']
   auth_token = ENV['AUTH_TOKEN']
   # @client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
-  @client = Twilio::REST::Client.new account_side, auth_token
+  @client = Twilio::REST::Client.new account_sid, auth_token
 
   @people = Person.all
   @people.each do |p|
