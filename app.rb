@@ -74,8 +74,8 @@ get '/numbers' do
   haml :numbers
 end
 
-delete 'delete/:id' do
-  p = Person.get params[:id]
+get_or_post '/delete' do
+  p = Person.find_by id: params[:id]
   p.destroy
   redirect '/numbers'
 end
