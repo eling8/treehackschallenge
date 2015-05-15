@@ -76,7 +76,7 @@ get '/numbers' do
 end
 
 get_or_post '/delete' do
-  p = Person.find_by id: params[:id]
+  p = Person.where(id: params[:id]).first
   p.destroy
   redirect '/numbers'
 end
