@@ -35,9 +35,10 @@ end
 
 # Send SMS
 post '/sendsms' do
-  account_sid = "AC3441ffbb10cf4fd9ada0aaeed8505e99"
-  auth_token  = "47b773f061c61a6bd35a70f82b4bb1cc"
-  @client = Twilio::REST::Client.new account_sid, auth_token
+  # account_sid = "AC3441ffbb10cf4fd9ada0aaeed8505e99"
+  # auth_token  = "47b773f061c61a6bd35a70f82b4bb1cc"
+  # @client = Twilio::REST::Client.new account_side, auth_token
+  @client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
 
   @people = Person.all
   @people.each do |p|
@@ -51,9 +52,9 @@ end
 
 # Send MMS
 post '/sendmms' do
-  account_sid = "AC3441ffbb10cf4fd9ada0aaeed8505e99"
-  auth_token  = "47b773f061c61a6bd35a70f82b4bb1cc"
-  @client = Twilio::REST::Client.new account_sid, auth_token
+  #account_sid = "AC3441ffbb10cf4fd9ada0aaeed8505e99"
+  #auth_token  = "47b773f061c61a6bd35a70f82b4bb1cc"
+  @client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
 
   @people = Person.all
   @people.each do |p|
