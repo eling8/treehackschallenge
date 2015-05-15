@@ -35,10 +35,6 @@ end
 
 # Send SMS
 post '/sendsms' do
-  #account_sid = ENV['ACCOUNT_SID']
-  #auth_token = ENV['AUTH_TOKEN']
-  #@client = Twilio::REST::Client.new account_sid, auth_token
-
   @client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
 
   @people = Person.all
@@ -53,10 +49,7 @@ end
 
 # Send MMS
 post '/sendmms' do
-  #account_sid = ENV['ACCOUNT_SID']
-  #auth_token = ENV['AUTH_TOKEN']
   @client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
-  #@client = Twilio::REST::Client.new account_sid, auth_token
 
   @people = Person.all
   @people.each do |p|
