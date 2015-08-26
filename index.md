@@ -1,4 +1,5 @@
 ---
+layout: default
 ---
 
 An h1 header
